@@ -29,7 +29,7 @@ protected
 
   def render_page(status = 200)
     if @cms_layout = @cms_page.layout
-      app_layout = (@cms_layout.app_layout.blank? || request.xhr?) ? false : @cms_layout.app_layout
+      app_layout = (@cms_layout.app_layout.blank? || request.xhr?) ? false : ComfortableMexicanSofa.config.app_layouts_directory + @cms_layout.app_layout
       render  :inline       => @cms_page.content_cache,
               :layout       => app_layout,
               :status       => status,
